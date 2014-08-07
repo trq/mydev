@@ -1,0 +1,27 @@
+{
+    "name": "trq/mydev",
+    "description": "A complete vagrant based dev environment for php developers.",
+    "keywords": ["Ubuntu","Vagrant", "DevOps"],
+    "homepage": "http://thorpesystems.com",
+    "type": "library",
+    "license": "MIT",
+    "authors": [{
+        "name": "Tony R Quilkey",
+        "email": "trq@thorpesystems.com",
+        "homepage": "http://thorpesystems.com"
+    }],
+    "require": {
+        "symfony/console": "~2.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "MyDev\\": ["mydev/"]
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "1.0.x-dev"
+        }
+    }, 
+    "bin": ["bin/mydev"]
+}
