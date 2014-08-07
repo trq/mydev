@@ -1,0 +1,30 @@
+---
+# Box configuration
+box:      "mydev"
+box_url:  "https://www.dropbox.com/s/48t03idr7ka2y43/mydev.box?dl=1"
+hostname: "mydev.lcl"
+ip:       "192.168.10.111"
+memory:   2048
+cpus:     1
+
+# Port configuration
+ports:
+    - host: 8000
+      guest: 80
+    - host: 33060
+      guest: 3306
+
+# Setup shares (use absolute paths)
+# By default your project root is mapped to /home/vagrant/src
+#
+# shares:
+#    - map: /Users/user/dir
+#      to: /home/vagrant/somedir
+
+# Setup provisioning scripts (relative to your prject root)
+
+# provisioning:
+#     privileged:
+#         - scripts/bootstrap.sh
+#     none_privileged:
+#         - scripts/myhome.sh

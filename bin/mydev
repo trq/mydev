@@ -1,0 +1,33 @@
+#!/usr/bin/env php
+<?php
+
+    if (
+        // Check where autoload would be if this is Sculpin included
+        // as a dependency.
+        (!@include __DIR__.'/../../../autoload.php') and
+        // Check where autoload would be if this is a development version
+        // of Sculpin. (based on actual file)
+        (!@include __DIR__.'/../vendor/autoload.php')
+    ) {
+        die('You must set up the project dependencies, run the following commands:
+
+    bin/composer install
+
+');
+    }
+
+use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Input\ArgvInput;
+use MyDev\Command\Vagrant;
+use MyDev\Command\Init;
+use MyDev\Command\Up;
+use MyDev\Command\Halt;
+use MyDev\Command\Ssh;
+
+$app = new Application('mydev', '0.0.1');
+$app->add(new Vagrant());
+$app->add(new Init());
+$app->add(new Up());
+$app->add(new Halt());
+$app->add(new Ssh());
+$app->run(new ArgvInput());
